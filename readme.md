@@ -17,7 +17,7 @@ O **QR Wizard** é parte de um projeto pessoal que simplifica a criação de QR 
 - [x] Gere QR Codes com rapidez e facilidade.
 - [x] Faça download do QR Code gerado e utilize em qualquer lugar, para alguns exemplos veja a seção de **Aplicações**.
 - [x] Layout responsivo feito com ***Tailwind CSS*** que se adapta a diferentes tamanhos de tela e dispositivos.
-- [x] Seção de ***FAQ*** com dúvidas frequêntes e também uma seção de ***Contato*** para feedback, dúvidas e entre outros.
+- [x] Seção de ***FAQ*** com dúvidas frequentes e também uma seção de ***Contato*** para feedback, dúvidas e entre outros.
 - [x] Projeto feito utilizando a biblioteca JavaScript [QRCODE.js](https://www.npmjs.com/package/qrcodejs).
 
 ## Como utilizar o QR Wizard :gear:
