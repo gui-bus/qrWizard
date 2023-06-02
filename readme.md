@@ -1,12 +1,12 @@
 # QR Wizard :mage:
 <br> 
 <p align="center">
-  <img src="https://gui-bus.github.io/qrWizard/img/QR_Wizard.png" alt="QR Wizard" width="400" />
+  <img src="https://github.com/gui-bus/qrWizard/blob/main/img/QR_Wizard.png" alt="QR Wizard" width="400" />
 </p>
 
 <br> 
 
-![QR Wizard](https://gui-bus.github.io/qrWizard/img/QR_demo.jpg)
+![QR Wizard](https://github.com/gui-bus/qrWizard/blob/main/img/QR_demo.jpg)
 
 
 ## O Que é o QR Wizard :question:
@@ -14,11 +14,11 @@ O **QR Wizard** é parte de um projeto pessoal que simplifica a criação de QR 
 
 ### Características :dart:
 
-- Gere QR Codes com rapidez e facilidade.
-- Faça download do QR Code gerado e utilize em qualquer lugar, para alguns exemplos veja a seção de **Aplicações**.
-- Layout responsivo feito com ***Tailwind CSS*** que se adapta a diferentes tamanhos de tela e dispositivos.
-- Seção de ***FAQ*** com dúvidas frequêntes e também uma seção de ***Contato*** para feedback, dúvidas e entre outros.
-- Projeto feito utilizando a biblioteca JavaScript [QRCODE.js](https://www.npmjs.com/package/qrcodejs).
+- [x] Gere QR Codes com rapidez e facilidade.
+- [x] Faça download do QR Code gerado e utilize em qualquer lugar, para alguns exemplos veja a seção de **Aplicações**.
+- [x] Layout responsivo feito com ***Tailwind CSS*** que se adapta a diferentes tamanhos de tela e dispositivos.
+- [x] Seção de ***FAQ*** com dúvidas frequêntes e também uma seção de ***Contato*** para feedback, dúvidas e entre outros.
+- [x] Projeto feito utilizando a biblioteca JavaScript [QRCODE.js](https://www.npmjs.com/package/qrcodejs).
 
 ## Como utilizar o QR Wizard :gear:
 
@@ -43,7 +43,7 @@ Cor secundaria: #ffffff
 3. Clique no botão "**Gerar QR Code**" para criar o QR Code.
 
 <p align="center">
-  <img src="https://gui-bus.github.io/qrWizard/img/QR_Google.png" alt="QR Wizard" width="200" />
+  <img src="https://github.com/gui-bus/qrWizard/blob/main/img/QR_Google.png" alt="QR Wizard" width="200" />
 </p>
 
 4. Visualize o QR Code gerado e, se desejar, faça alguma alteração.
