@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A QR Wizard simplifica a criação de QR Codes, oferecendo uma solução rápida e eficiente para gerar códigos práticos e funcionais.
+      Crie seus QR Codes em segundos, com facilidade e confiabilidade!"
+    />
+    <meta
+      name="keywords"
+      content="qr code, qr codes, qrcodes, create qr code, criar qr code, qr code generator, gerador qr code, gerador qrcode, create qrcodes, make a qr code, fazer qr code, online qr code, qrcode free, qr code free, qrcode gratis, qr code gratis"
+    />
+
+    <meta property="og:image" content="img/QR_demo.jpg" />
+
+    <!-- ?Bai Jumjuree -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ?Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ?Tailwind CSS -->
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ?JS Script -->
+    <script src="js/script.js" defer></script>
+
+    <!-- ?QRCode JS lib -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- ?Animation on scroll lib -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- ?FavIcon -->
+    <link rel="shortcut icon" href="img/qr-code.ico" type="image/x-icon" />
+
+    <title>QR Wizard - Gerador de QR Code Online Grátis!</title>
+  </head>
+
+  <body class="font-bai overflow-x-hidden">
+    <header class="py-4 px-6 bg-slate-500 text-white">
+      <div class="flex flex-col md:flex-row justify-center items-center m-auto">
+        <a href="index.html"
+          ><img
+            src="./img/QR_Wizard.png"
+            alt="Logo QR Maker"
+            class="w-44 my-3 md:mr-96"
+        /></a>
+        <ul class="flex space-x-5">
+          <li>
+            <a
+              href="#Apply"
+              class="font-semibold hover:text-wizardGreen duration-200"
+              >Aplicações</a
+            >
+          </li>
+          <li>
+            <a
+              href="#FAQ"
+              class="font-semibold hover:text-wizardGreen duration-200"
+              >FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Contact"
+              class="font-semibold hover:text-wizardGreen duration-200"
+              >Contato</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- !Main layout -->
+      <section
+        class="flex flex-col-reverse align-center justify-center mx-auto -mt-3 md:max-w-4xl p-6 md:flex-row"
+      >
+        <div class="w-full md:w-3/3 mr-24 text-center" id="Home">
+          <h1
+            class="text-3xl text-center font-bold my-3 md:text-4xl text-wizardGreen"
+          >
+            Bem-vindo ao <br />
+            QR Wizard!
+          </h1>
+
+          <p class="mb-4">
+            <strong class="font-medium"
+              >Aqui, você encontrará uma plataforma intuitiva e eficiente que
+              simplifica todo o processo de geração de QR Codes.</strong
+            >
+          </p>
+          <p>
+            Com apenas alguns cliques, você poderá criar códigos funcionais e
+            práticos para uma variedade de finalidades e o melhor, totalmente
+            grátis!
+          </p>
+
+          <!-- ?Forms -->
+          <form id="generate-form" class="mt-4">
+            <div class="flex mb-3">
+              <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+              >
+                <i class="fas fa-link"></i>
+              </span>
+              <input
+                id="url"
+                type="url"
+                class="w-full py-2 px-4 border border-gray-300 rounded-r-md focus:outline-none focus:border-wizardGreen"
+                placeholder="https://www.exemplo.com"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="flex flex-row gap-3">
+              <div class="flex w-1/2">
+                <span
+                  class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+                >
+                  <i class="fas fa-arrows-alt"></i>
+                </span>
+                <select
+                  class="py-2 px-4 border border-gray-300 rounded-r-md focus:outline-none focus:border-wizardGreen w-full"
+                  name="size"
+                  id="size"
+                  required
+                >
+                  <option value="100">100px</option>
+                  <option value="200">200px</option>
+                  <option value="300" selected>300px</option>
+                  <option value="400">400px</option>
+                </select>
+              </div>
+
+              <div class="flex w-1/2">
+                <span
+                  class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+                >
+                  <i class="far fa-image"></i>
+                </span>
+                <select
+                  id="file-format"
+                  class="py-2 px-4 border border-gray-300 rounded-r-md focus:outline-none focus:border-wizardGreen w-full"
+                >
+                  <option value="png">PNG</option>
+                  <option value="jpeg">JPEG</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded my-3">
+              <figure>
+                <table class="min-w-full leading-normal">
+                  <thead>
+                    <tr>
+                      <th
+                        class="py-2 px-4 bg-gray-100 text-gray-600 font-semibold text-center"
+                        colspan="2"
+                      >
+                        Selecione as cores
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="py-2 px-4 border-b border-gray-200">
+                        <input
+                          id="color-picker-primary"
+                          type="color"
+                          class="appearance-none w-10 h-10 rounded border border-gray-300"
+                          value="#000000"
+                        />
+                      </td>
+                      <td class="py-2 px-4 border-b border-gray-200">
+                        <input
+                          id="color-picker-secondary"
+                          type="color"
+                          class="appearance-none w-10 h-10 rounded border border-gray-300"
+                          value="#ffffff"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <figcaption class="p-3 text-xs">
+                  Para obter um resultado ideal do QR Code, é recomendado
+                  selecionar uma cor escura para a cor primária (à esquerda) e
+                  uma cor clara para a secundária (à direita). <br />
+                  <span class="font-medium"
+                    >Isso ajudará a garantir uma boa legibilidade e contraste do
+                    código.</span
+                  >
+                </figcaption>
+              </figure>
+            </div>
+
+            <button
+              class="bg-emerald-500 font-semibold rounded w-full text-white py-3 px-4 mt-5 hover:bg-emerald-600 duration-200"
+              type="submit"
+            >
+              Gerar QR Code
+            </button>
+          </form>
+        </div>
+
+        <!-- ?Image -->
+        <div class="w-full md:w-[40rem] self-center">
+          <figure>
+            <img
+              src="img/QR_demo.jpg"
+              alt="QR Code"
+              class="w-full m-auto mb-10 md:w-[50rem]"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- !QR Code generated -->
+      <section
+        id="generated"
+        class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20"
+      >
+        <!-- ?Spinner -->
+        <div id="spinner" class="my-24" role="status">
+          <svg
+            class="inline mr-2 w-24 h-24 text-gray-200 animate-spin dark:text-gray-600 fill-emerald-500"
+            viewBox="0 0 100 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+              fill="currentColor"
+            />
+            <path
+              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+              fill="currentFill"
+            />
+          </svg>
+        </div>
+
+        <!-- ?Text after generate -->
+        <div class="mx-auto p-5 -mt-28">
+          <span id="spacer"></span>
+          <span
+            id="qrcode"
+            class="flex justify-center items-center my-8"
+          ></span>
+          <div id="downloadLinkContainer"></div>
+          <span
+            id="sucessTitle"
+            class="text-center font-medium text-2xl"
+          ></span>
+          <span id="successParag" class="text-center"></span>
+        </div>
+      </section>
+
+      <!-- !Uses -->
+      <section id="Apply">
+        <div
+          class="w-full md:w-3/3 mr-24 text-center p-8 bg-emerald-500 text-white"
+        >
+          <h1
+            class="text-2xl text-center font-bold my-5 md:text-3xl"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            Está em dúvida de onde e como voce pode usar seus QR Codes?
+          </h1>
+
+          <p
+            class="mb-8 md:text-xl"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            Não se preocupe! Há uma infinidade de maneiras de utilizá-los. Aqui
+            estão algumas ideias para você explorar:
+          </p>
+
+          <div
+            class="flex flex-wrap justify-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-book text-white text-6xl"></i>
+              <span class="font-medium">Livros</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-tag text-white text-6xl"></i>
+              <span>Etiquetas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-address-card text-white text-6xl"></i>
+              <span>Cartões de Visita</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-file-alt text-white text-6xl"></i>
+              <span>Panfletos</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-wine-bottle text-white text-6xl"></i>
+              <span>Garrafas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-tshirt text-white text-6xl"></i>
+              <span>Roupas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-box text-white text-6xl"></i>
+              <span>Embalagens</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-ticket text-white text-6xl"></i>
+              <span>Ingressos</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-map-marked-alt text-white text-6xl"></i>
+              <span>Mapas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-file-powerpoint text-white text-6xl"></i>
+              <span>Slides</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-shopping-cart text-white text-6xl"></i>
+              <span>Produtos</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-truck text-white text-6xl"></i>
+              <span>Veículos</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-id-badge text-white text-6xl"></i>
+              <span>Crachás</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-certificate text-white text-6xl"></i>
+              <span>Certificados</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-capsules text-white text-6xl"></i>
+              <span>Remédios</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-bullhorn text-white text-6xl"></i>
+              <span>Anúncios</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-tools text-white text-6xl"></i>
+              <span>Ferramentas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-utensils text-white text-6xl"></i>
+              <span>Cardápios</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-trophy text-white text-6xl"></i>
+              <span>Premiações</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-suitcase text-white text-6xl"></i>
+              <span>Bagagem</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-cog text-white text-6xl"></i>
+              <span>Menus</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-sign text-white text-6xl"></i>
+              <span>Placas</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-palette text-white text-6xl"></i>
+              <span>Artes</span>
+            </div>
+
+            <div
+              class="w-1/3 md:w-1/6 flex flex-col items-center space-x-2 mb-8"
+            >
+              <i class="fas fa-envelope-open-text text-white text-6xl"></i>
+              <span>Convites</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- !FAQ -->
+      <section id="FAQ" class="text-gray-900">
+        <div class="flex items-center justify-center my-5">
+          <img src="./img/FAQ.jpg" alt="FAQ" class="w-2/3 md:w-1/3" />
+        </div>
+
+        <div class="mx-auto py-8 bg-white">
+          <div class="space-y-4 w-full px-5">
+            <!-- ?Q1 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">O que são QR Codes?</h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium"
+                    >QR Codes são códigos bidimensionais que armazenam
+                    informações de forma codificada.</span
+                  >
+                  <br />
+                  Eles podem conter diversos tipos de dados, como texto, URLs,
+                  informações de contato, entre outros. Para ler um QR Code, é
+                  necessário ter um dispositivo com câmera e um aplicativo de
+                  leitura instalado.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q2 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">Como posso escaneá-lo?</h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Para escanear um QR Code, você precisa de um aplicativo de
+                    leitura de QR Code em seu dispositivo móvel.</span
+                  >
+                  <br />
+                  Basta abrir o aplicativo, apontar a câmera para o QR Code e
+                  aguardar a leitura. O aplicativo irá decodificar o QR Code e
+                  apresentar o conteúdo associado a ele.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q3 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">
+                  Quais são os seus usos comuns?
+                </h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Os QR Codes são amplamente utilizados para uma variedade de
+                    finalidades, como compartilhar informações de contato,
+                    redirecionar para um site, fazer pagamentos, fornecer
+                    detalhes de produtos, entre outros.</span
+                  >
+                  <br />
+                  Sua versatilidade torna-os populares em marketing, logística,
+                  eventos e outros setores.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q4 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">
+                  Existem riscos ao escaneá-los?
+                </h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Embora a maioria dos QR Codes seja segura, é importante ter
+                    cuidado ao escanear códigos de fontes desconhecidas.</span
+                  >
+                  <br />Alguns QR Codes podem conter links maliciosos que
+                  redirecionam para sites fraudulentos ou executam ações
+                  indesejadas. Portanto, é recomendado utilizar um aplicativo
+                  confiável para fazer a leitura e evitar escanear QR Codes de
+                  origens não confiáveis.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q5 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">
+                  Podem ser impressos em diferentes tamanhos?
+                </h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Sim, os QR Codes podem ser impressos em diferentes tamanhos,
+                    desde que sejam mantidas as proporções corretas para
+                    preservar a legibilidade.</span
+                  >
+                  <br />É importante garantir que o código não seja muito
+                  pequeno, pois pode dificultar a leitura pelo aplicativo. Além
+                  disso, ao imprimir um QR Code, é essencial manter uma boa
+                  qualidade de impressão para garantir que todos os detalhes
+                  sejam capturados pela câmera do dispositivo ao escaneá-lo.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q6 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">
+                  Possuem uma data de validade?
+                </h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Os QR Codes em si não possuem uma data de validade embutida.
+                    Eles podem ser lidos a qualquer momento, desde que
+                    permaneçam legíveis.</span
+                  >
+                  <br />No entanto, as informações associadas ao QR Code podem
+                  ter uma data de validade, como um link para um site específico
+                  ou um cupom com uma data de expiração. Portanto, é importante
+                  considerar a validade das informações contidas no QR Code,
+                  caso elas possuam um prazo de utilização.
+                </p>
+              </div>
+            </div>
+
+            <!-- ?Q7 -->
+            <div
+              class="bg-white accordion shadow-md rounded-lg"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="flex items-center justify-between p-4 cursor-pointer">
+                <h3 class="text-xl font-semibold">
+                  Podem ser usados sem conexão com a internet?
+                </h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                </svg>
+              </div>
+              <div class="px-6 py-4 hidden">
+                <p class="text-gray-700">
+                  <span><hr class="mb-3 -mt-3" /></span>
+                  <span class="font-medium">
+                    Sim, os QR Codes podem ser usados offline. Uma vez que o
+                    código é gerado, ele pode ser impresso em materiais físicos,
+                    como panfletos, cartazes, embalagens e cartões de visita.
+                  </span>
+                  <br />Os usuários podem escanear o QR Code com seus
+                  dispositivos móveis, mesmo sem conexão com a internet, e
+                  acessar o conteúdo armazenado no código.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- !Contact -->
+      <section id="Contact" class="text-gray-900">
+        <div class="flex items-center justify-center my-2">
+          <img src="./img/contact.jpg" alt="Contact" class="w-2/3 md:w-1/3" />
+        </div>
+
+        <div
+          class="w-full md:w-[50%] mx-auto text-center p-6"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <p>
+            <span class="font-medium text-xl text-wizardGreen"
+              >Sua opinião é importante para nós!</span
+            >
+            <br />
+            Se você tiver alguma pergunta, feedback, sugestão ou qualquer outro
+            assunto relacionado ao QR Wizard, por favor, entre em contato.
+            <br />
+            Estamos ansiosos para ouvir você!
+          </p>
+        </div>
+
+        <div class="mx-auto py-8 bg-white">
+          <form
+            action="https://formspree.io/f/mrgvvwkz"
+            method="POST"
+            class="max-w-lg mx-auto px-6"
+          >
+            <div class="flex mb-3">
+              <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+              >
+                <i class="fas fa-user"></i>
+              </span>
+              <input
+                id="Nome"
+                type="text"
+                pattern="^[A-Za-z]+$"
+                oninput="this.value = this.value.replace(/[0-9]/g, '')"
+                class="w-full py-2 px-4 border border-gray-300 rounded-r-md focus:outline-none focus:border-wizardGreen"
+                placeholder="Seu nome"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="flex mb-3">
+              <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+              >
+                <i class="fas fa-envelope"></i>
+              </span>
+              <input
+                name="E-mail"
+                id="email"
+                type="email"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                class="w-full py-2 px-4 border border-gray-300 rounded-r-md focus:outline-none focus:border-wizardGreen"
+                placeholder="Seu e-mail"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="flex mb-3">
+              <div
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-white text-gray-500"
+              >
+                <i class="fas fa-comment"></i>
+              </div>
+              <textarea
+                name="Mensagem"
+                id="message"
+                class="w-full py-2 px-4 border border-gray-300 rounded-r-md resize-none focus:outline-none focus:border-wizardGreen"
+                rows="4"
+                maxlength="500"
+                placeholder="Sua mensagem"
+                required
+              ></textarea>
+            </div>
+            <div class="flex justify-end">
+              <span id="charCount" class="text-gray-500 text-sm"
+                >500 caracteres restantes</span
+              >
+            </div>
+
+            <button
+              type="submit"
+              class="flex justify-center m-auto bg-emerald-500 text-white font-bold my-3 py-2 px-4 rounded hover:bg-emerald-600 duration-200"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- !backToTop anchor -->
+      <nav class="flex justify-end items-center mb-5 mr-5">
+        <a
+          href="#Home"
+          class="flex items-center justify-center w-12 h-12 bg-emerald-500 rounded-full text-white hover:bg-emerald-600 duration-200"
+        >
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="bg-slate-500 text-white py-4">
+      <div
+        class="container mx-auto flex text-center flex-col items-center justify-between"
+      >
+        <a href="index.html">
+          <img
+            src="./img/QR_Wizard.png"
+            alt="Logo QR Wizard"
+            class="w-40 my-5"
+          />
+        </a>
+        <p class="text-base p-4 mb-3">
+          A QR Wizard simplifica a criação de QR Codes, oferecendo uma solução
+          rápida e eficiente para gerar códigos práticos e funcionais. <br />
+          <strong>
+            Crie seus QR Codes em segundos, com facilidade e
+            confiabilidade!</strong
+          >
+        </p>
+        <p class="text-base mb-3 md:mb-0">
+          &copy; 2023 - Feito por Guilherme Bustamante. <br />
+          Todos os direitos reservados.
+        </p>
+        <p class="text-sm my-2 text-gray-200">
+          Fonte das imagens:
+          <a
+            class="hover:text-wizardGreen"
+            href="https://br.freepik.com/"
+            target="_blank"
+            >Freepik</a
+          >
+        </p>
+        <div class="flex space-x-4 my-5">
+          <a
+            href="https://www.instagram.com/guibus_dev/"
+            target="_blank"
+            class="text-white text-3xl hover:text-wizardGreen"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/gui-bus"
+            target="_blank"
+            class="text-white text-3xl hover:text-wizardGreen"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/gui-bus/"
+            target="_blank"
+            class="text-white text-3xl hover:text-wizardGreen"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="mailto:guibus.dev@gmail.com"
+            target="_blank"
+            class="text-white text-3xl hover:text-wizardGreen"
+          >
+            <i class="far fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./file-saver/src/FileSaver.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

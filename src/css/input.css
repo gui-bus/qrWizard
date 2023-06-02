@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#spinner {
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+}
